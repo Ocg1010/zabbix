@@ -63,11 +63,11 @@ dnf clean all
 dnf install zabbix-server-pgsql zabbix-web-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-selinux-policy zabbix-agent
 ```
 > [!NOTE] El comando anterior instala:
-> - `zabbix-server-pgsql`: Servidor Zabbix con soporte para PostgreSQL.
-> - `zabbix-web-pgsql`: Frontend web para Zabbix.
-> - `zabbix-apache-conf`: Configuración de Apache para Zabbix.
-> - `zabbix-sql-scripts`: Scripts SQL necesarios para la base de datos.
-> - `zabbix-selinux-policy`: Políticas SELinux para Zabbix.
+ - `zabbix-server-pgsql`: Servidor Zabbix con soporte para PostgreSQL.
+ - `zabbix-web-pgsql`: Frontend web para Zabbix.
+ - `zabbix-apache-conf`: Configuración de Apache para Zabbix.
+ - `zabbix-sql-scripts`: Scripts SQL necesarios para la base de datos.
+ - `zabbix-selinux-policy`: Políticas SELinux para Zabbix.
 > - `zabbix-agent`: Agente de monitoreo de Zabbix.
 
 ## Instalación y configuración de PostgreSQL
