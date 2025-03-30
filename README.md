@@ -162,3 +162,46 @@ systemctl restart zabbix-server zabbix-agent httpd php-fpm
 systemctl enable zabbix-server zabbix-agent httpd php-fpm
 ```
 
+## Abra la página web de la interfaz de usuario de Zabbix
+La URL predeterminada para la interfaz de usuario de Zabbix cuando se utiliza el servidor web httpd es http://host/zabbix
+Ingrese el nombre de usuario "Admin" y la contraseña "zabbix" para iniciar sesión como superusuario de Zabbix . Tendrá acceso a todas las secciones del menú.
+
+
+# Instalación y configuración de Zabbix Agent 2 en RHEL 8
+
+### Instalar el repositorio de Zabbix
+Se debe agregar el repositorio oficial de Zabbix para RHEL 8.
+
+```
+rpm -Uvh https://repo.zabbix.com/zabbix/7.0/rhel/8/x86_64/zabbix-release-latest-7.0.el8.noarch.rpm
+dnf clean all
+
+```
+
+### Instalar Zabbix Agent 2
+```
+dnf install -y zabbix-agent2
+
+```
+
+### Instalar plugins adicionales para el agente
+Si se desea monitorear bases de datos como MongoDB, Microsoft SQL Server o PostgreSQL, se pueden instalar los siguientes paquetes:
+```
+dnf install -y zabbix-agent2-plugin-mongodb zabbix-agent2-plugin-mssql zabbix-agent2-plugin-postgresql
+```
+
+### Configurar Zabbix Agent 2
+Editar el archivo de configuración del agente en /etc/zabbix/zabbix_agent2.conf y modificar las siguientes líneas con la dirección IP del servidor Zabbix y el hostname del agente:
+```
+Server=IP_DEL_SERVIDOR_ZABBIX
+ServerActive=IP_DEL_SERVIDOR_ZABBIX
+Hostname=NOMBRE_DEL_HOST
+
+```
+
+### Iniciar y habilitar el servicio Zabbix Agent 2
+```
+systemctl restart zabbix-agent2
+systemctl enable zabbix-agent2
+
+```
