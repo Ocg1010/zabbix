@@ -169,6 +169,19 @@ Ingrese el nombre de usuario "Admin" y la contraseña "zabbix" para iniciar sesi
 
 # Instalación y configuración de Zabbix Agent 2 en RHEL 8
 
+La instalación del cliente Zabbix se realizará en un sistema con las siguientes características:
+
+- **Sistema Operativo:** Red Hat 8.10
+- **Disco:** 5 GB de espacio 
+- **Memoria RAM:** 2 GB
+- **CPU:** 1 vCPUs
+
+Antes de proceder con la instalación del cliente Zabbix, asegúrate de que el sistema esté:
+
+1. **Licenciado con Red Hat:** El sistema debe contar con una licencia activa de Red Hat.
+2. **Actualizado:** El sistema operativo debe estar actualizado con los últimos parches y actualizaciones disponibles.
+
+
 ### Instalar el repositorio de Zabbix
 Se debe agregar el repositorio oficial de Zabbix para RHEL 8.
 
