@@ -62,7 +62,7 @@ dnf clean all
 ```bash
 dnf install zabbix-server-pgsql zabbix-web-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-selinux-policy zabbix-agent
 ```
-> [!INFO] El comando anterior instala:
+> [!NOTE] El comando anterior instala:
 > - `zabbix-server-pgsql`: Servidor Zabbix con soporte para PostgreSQL.
 > - `zabbix-web-pgsql`: Frontend web para Zabbix.
 > - `zabbix-apache-conf`: Configuración de Apache para Zabbix.
@@ -137,6 +137,22 @@ Reinicia PostgreSQL para aplicar los cambios de configuración.
 systemctl restart postgresql.service
 ```
 
+## Configuración de SELinux para habilitar la comunicación entre el frontend de Zabbix y el servidor
+
+Con el estado SELinux habilitado en modo `Enforcing`, debe ejecutar los siguientes comandos para habilitar la comunicación:
+
+Habilitar la comunicación entre el frontend de Zabbix y el servidor:
+```
+setsebool -P httpd_can_connect_zabbix on
+```
+Si la base de datos es accesible a través de la red (incluido 'localhost' en el caso de PostgreSQL), permitir que la interfaz de Zabbix también se conecte a la base de datos:
+```
+setsebool -P httpd_can_network_connect_db on
+```
+Reiniciar el servidor httpd
+```
+systemctl restart httpd
+```
 
 ## Reinicio y habilitación de los servicios necesarios para Zabbix
 Reinicia todos los servicios necesarios para Zabbix y habilita el inicio automático de los servicios al arrancar el sistema.
