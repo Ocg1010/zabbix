@@ -167,7 +167,7 @@ La URL predeterminada para la interfaz de usuario de Zabbix cuando se utiliza el
 Ingrese el nombre de usuario "Admin" y la contraseña "zabbix" para iniciar sesión como superusuario de Zabbix . Tendrá acceso a todas las secciones del menú.
 
 
-# Instalación y configuración de Zabbix Agent 2 en RHEL 8
+# Instalación y configuración de un cliente para Zabbix, contara con el Agent 2 en Red Hat 8
 
 La instalación del cliente Zabbix se realizará en un sistema con las siguientes características:
 
@@ -188,13 +188,11 @@ Se debe agregar el repositorio oficial de Zabbix para RHEL 8.
 ```
 rpm -Uvh https://repo.zabbix.com/zabbix/7.0/rhel/8/x86_64/zabbix-release-latest-7.0.el8.noarch.rpm
 dnf clean all
-
 ```
 
 ### Instalar Zabbix Agent 2
 ```
 dnf install -y zabbix-agent2
-
 ```
 
 ### Instalar plugins adicionales para el agente
@@ -209,12 +207,10 @@ Editar el archivo de configuración del agente en /etc/zabbix/zabbix_agent2.conf
 Server=IP_DEL_SERVIDOR_ZABBIX
 ServerActive=IP_DEL_SERVIDOR_ZABBIX
 Hostname=NOMBRE_DEL_HOST
-
 ```
 
 ### Iniciar y habilitar el servicio Zabbix Agent 2
 ```
 systemctl restart zabbix-agent2
 systemctl enable zabbix-agent2
-
 ```
